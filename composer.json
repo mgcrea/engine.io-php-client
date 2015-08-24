@@ -1,0 +1,22 @@
+{
+    "name": "up9cloud/engine-io-php-client",
+    "description": "php communicate with socketio/engine.io server.",
+    "require": {
+        "php": ">=5.5.9",
+        "wisembly/elephant.io": "~3.0"
+    },
+    "require-dev": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ss-t.c",
+            "email": "up9cloud.net@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
