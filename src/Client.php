@@ -33,6 +33,9 @@ final Class Client implements ClientInterface {
 	function __construct($uri = null, $options=[], $debug_callback=null) {
 		$this->conn = new Transport($uri, $options, $debug_callback);
 	}
+	function __destruct(){
+		$this->close();
+	}
 	protected function write($code, $data){
 		$encoded=new Encoder(4 . $data, Encoder::OPCODE_TEXT, true);
 		$this->conn->write((string) $encoded);

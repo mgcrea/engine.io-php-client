@@ -338,7 +338,10 @@ Class Transport {
 				switch ($this->socket_service) {
 					case 'Sockets':
 						$this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-						$result = socket_connect($this->socket, $this->host, $this->port);
+						$result = @socket_connect($this->socket, $this->host, $this->port);
+						if(!$result){
+							throw new \ErrorException("socket connect failed.", 1);
+						}
 						break;
 					case 'stream':
 					default:
