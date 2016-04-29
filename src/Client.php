@@ -13,7 +13,7 @@ final Class Client implements ClientInterface {
 	 * event callbacks.
 	 * @var array
 	 */
-	private $_event_callbacks = [];
+	private $_event_callbacks = array();
 	/**
 	 * current exist events,
 	 * @var array
@@ -30,7 +30,7 @@ final Class Client implements ClientInterface {
 		'ping',
 		'pong'
 	);
-	function __construct($uri = null, $options=[], $debug_callback=null) {
+	function __construct($uri = null, $options=array(), $debug_callback=null) {
 		$this->conn = new Transport($uri, $options, $debug_callback);
 	}
 	function __destruct(){
@@ -50,7 +50,7 @@ final Class Client implements ClientInterface {
 	 * @param  [type] $callback [description]
 	 * @return void
 	 */
-	public function send($data, $options = ['compress'=>true], $callback = null) {
+	public function send($data, $options = array('compress'=>true), $callback = null) {
 		$this->write(Type::MESSAGE, $data);
 		$response=$this->read();
 		if($callback){
